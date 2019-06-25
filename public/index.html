@@ -23,12 +23,11 @@
 
                 $("#message").hide();
 
-                var firstName = $("#firstName").val();
-                var lastName = $("#lastName").val();
+                var Name = $("#Name").val();
                 var email = $("#email").val();
                 var phone = $("#phone").val();
 
-                if (firstName.length == 0 || lastName.length == 0 || email.length == 0 || phone.length == 0) {
+                if (Name.length == 0 || email.length == 0 || phone.length == 0) {
                     errorMessage.text("All of the fields are required.");
                     error.show();
                 }
@@ -37,16 +36,14 @@
                         url: event.target.action,
                         method: event.target.method,
                         data: JSON.stringify({
-                            firstName: firstName,
-                            lastName: lastName,
+                            Name: Name,
                             email: email,
                             phone: phone
                         }),
                         contentType: "application/json; charset=utf-8",
                         dataType: "json",
                         success: function(data) {
-                            $("#firstName").val("");
-                            $("#lastName").val("");
+                            $("#Name").val("");
                             $("#email").val("");
                             $("#phone").val("");
                             $("#messageMessage").text("Record updated!");
@@ -80,12 +77,8 @@
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label for="firstName">First Name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="For verification" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">Last Name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="For verification" required>
+                        <label for="Name">Name</label>
+                        <input type="text" class="form-control" id="Name" placeholder="For verification" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
